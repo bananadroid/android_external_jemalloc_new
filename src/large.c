@@ -243,7 +243,7 @@ large_ralloc_no_move(tsdn_t *tsdn, extent_t *extent, size_t usize_min,
 		}
 		/* Try again, this time with usize_min. */
 		if (usize_min < usize_max && usize_min > oldusize &&
-		    large_ralloc_no_move_expand(tsdn, extent, usize_min,
+		    !large_ralloc_no_move_expand(tsdn, extent, usize_min,
 		    zero)) {
 			arena_decay_tick(tsdn, extent_arena_get(extent));
 			return false;
